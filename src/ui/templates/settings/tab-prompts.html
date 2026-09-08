@@ -1,0 +1,19 @@
+<div id="prompts-warning" class="hidden mb-6 p-4 bg-yellow-500/10 text-yellow-600 dark:text-yellow-500 border border-yellow-500/20 rounded-lg backdrop-blur-sm">
+  <p class="flex items-center gap-2 font-medium"><i data-lucide="alert-triangle" class="w-5 h-5"></i> No providers configured. Go to API Providers tab first.</p>
+</div>
+
+<!-- Category Sub-Tabs -->
+<div class="flex border-b border-subtle mb-6 gap-2" id="expert-categories">
+  <button data-cat="narrative" class="subtab-btn px-4 py-2.5 text-xs font-bold tracking-wider uppercase border-b-2 text-[var(--accent)] border-[var(--accent)] focus:outline-none flex items-center gap-2 transition-all">
+    <i data-lucide="book-open" class="w-4 h-4"></i> Primary Narrative
+  </button>
+  <button data-cat="creation" class="subtab-btn px-4 py-2.5 text-xs font-bold tracking-wider uppercase border-b-2 text-secondary border-transparent hover:text-primary focus:outline-none flex items-center gap-2 transition-all">
+    <i data-lucide="sparkles" class="w-4 h-4"></i> World & Character Forge
+  </button>
+  <button data-cat="memory" class="subtab-btn px-4 py-2.5 text-xs font-bold tracking-wider uppercase border-b-2 text-secondary border-transparent hover:text-primary focus:outline-none flex items-center gap-2 transition-all">
+    <i data-lucide="database" class="w-4 h-4"></i> RAG & Memory
+  </button>
+</div>
+
+<!-- Prompts container for filtered items -->
+<div id="prompts-container" class="space-y-6"></div>

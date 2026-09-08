@@ -1,0 +1,77 @@
+<div class="border border-default rounded-xl bg-surface overflow-hidden focus-within:border-[var(--accent)] transition-all shadow-sm" data-expert-id>
+  <div class="bg-base/50 border-b border-subtle p-5 flex justify-between items-center bg-gray-900/40">
+    <h3 class="font-prose text-xl text-primary font-bold tracking-tight" data-exp-name></h3>
+    <span class="text-[10px] font-mono tracking-widest uppercase bg-elevated border border-subtle text-secondary px-2.5 py-1 rounded-full shadow-sm" data-exp-id-label></span>
+  </div>
+  <div class="p-6 md:p-8 space-y-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="space-y-2">
+        <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Model Name</label>
+        <div class="flex flex-col sm:flex-row gap-2">
+          <input type="text" data-field="modelName" placeholder="e.g. gpt-4, gemini-2.5-pro" class="exp-input flex-1 px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-mono text-sm leading-relaxed">
+          <select data-select="savedModels" class="w-full sm:w-1/3 px-3 py-3 bg-base border border-default rounded-lg text-secondary focus:outline-none focus:border-[var(--accent)] transition-colors text-sm font-mono" title="Select from saved models">
+            <option value="">-- Saved Models --</option>
+          </select>
+        </div>
+      </div>
+      <div class="space-y-2">
+        <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Provider Link</label>
+        <select data-field="providerId" class="exp-input w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors text-sm">
+          <option value="">-- None --</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- For normal experts -->
+    <div data-normal-expert class="hidden space-y-8">
+      
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Temperature</label>
+          <input type="number" data-field="temperature" step="0.1" min="0" max="2" class="exp-input w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-mono text-sm leading-relaxed">
+        </div>
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Top P</label>
+          <input type="number" data-field="topP" step="0.01" min="0" max="1" class="exp-input w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-mono text-sm leading-relaxed">
+        </div>
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Top K</label>
+          <input type="number" data-field="topK" step="1" min="0" class="exp-input w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-mono text-sm leading-relaxed">
+        </div>
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Max Tokens</label>
+          <input type="number" data-field="maxTokens" step="1" min="0" placeholder="Unlimited" class="exp-input w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-mono text-sm leading-relaxed">
+        </div>
+        <div class="space-y-2 col-span-2 md:col-span-1">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Timeout (s)</label>
+          <input type="number" data-field="timeout" step="1" min="1" placeholder="Auto" class="exp-input w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-mono text-sm leading-relaxed font-semibold">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Thinking Budget</label>
+          <select class="tb-select w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors text-sm">
+            <option value="auto">Auto (Default)</option>
+            <option value="0">Off</option>
+            <option value="8192">Light (~8192Tokens)</option>
+            <option value="16000">Medium (~16000Tokens)</option>
+            <option value="24000">Heavy (~24000Tokens)</option>
+            <option value="custom">Custom Specified</option>
+          </select>
+        </div>
+        <div class="tb-custom space-y-2 hidden">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Custom Thinking Budget</label>
+          <input type="text" data-field="thinkingBudget" class="exp-input w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-mono text-xs">
+        </div>
+      </div>
+    </div>
+
+    <!-- For embed experts -->
+    <div data-embed-expert class="hidden mt-4">
+      <p class="text-xs text-secondary leading-relaxed italic bg-base/40 p-4 rounded-lg flex items-center justify-center border border-subtle">Embedding models do not support standard system prompts or typical generation configurations. A fixed Dimensionality size of 768 is applied by default.</p>
+    </div>
+
+  </div>
+</div>

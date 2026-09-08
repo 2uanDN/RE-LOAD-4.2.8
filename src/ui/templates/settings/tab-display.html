@@ -1,0 +1,91 @@
+<div class="max-w-xl space-y-6">
+  <!-- Appearance -->
+  <div class="border border-default rounded-xl p-6 flex items-center justify-between bg-surface shadow-sm transition-colors hover:border-[#3a3a44]">
+    <div>
+      <h3 class="text-xl font-prose text-primary flex items-center gap-3">
+        <i data-lucide="moon" class="w-5 h-5 text-[var(--accent)]"></i>
+        Appearance
+      </h3>
+      <p class="mt-2 text-sm text-secondary leading-relaxed">Toggle dark mode first workspace architecture settings.</p>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer group">
+      <input type="checkbox" id="theme-toggle" class="sr-only peer">
+      <div class="w-12 h-6 bg-hover peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-[var(--accent)] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all border border-subtle peer-checked:bg-[var(--accent)] group-hover:opacity-90"></div>
+    </label>
+  </div>
+
+  <!-- Typography Configurations -->
+  <div class="border border-default rounded-xl p-6 bg-surface shadow-sm transition-colors hover:border-[#3a3a44]">
+    <div class="mb-4">
+      <h3 class="text-xl font-prose text-primary flex items-center gap-3">
+        <i data-lucide="type" class="w-5 h-5 text-[var(--accent)]"></i>
+        Typography
+      </h3>
+      <p class="mt-2 text-sm text-secondary leading-relaxed font-ui">Adjust the default typography scale and font family of narrative blocks, monologue side thoughts, and dialogues inside the storytelling active viewport.</p>
+    </div>
+    
+    <div class="space-y-6 mt-6">
+      <!-- Font Family -->
+      <div>
+        <label class="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
+          Font Family
+        </label>
+        <select id="disp-font-family" class="w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-ui text-sm leading-relaxed">
+          <option value="system-default">System Default</option>
+          <option value="ibm-plex-mono">IBM Plex Mono</option>
+          <option value="inter">Inter</option>
+          <option value="livvic">Livvic</option>
+          <option value="lora">Lora</option>
+          <option value="merriweather">Merriweather</option>
+          <option value="noto-serif">Noto Serif</option>
+          <option value="nunito">Nunito</option>
+          <option value="open-sans">Open Sans</option>
+          <option value="roboto">Roboto</option>
+          <option value="space-grotesk">Space Grotesk</option>
+        </select>
+      </div>
+
+      <!-- Prose Text Size -->
+      <div>
+        <label class="block text-xs font-bold text-secondary uppercase tracking-wider mb-2">
+          Prose Text Size
+        </label>
+        <div class="flex bg-base p-1.5 rounded-xl border border-default gap-1.5 shadow-inner" id="prose-size-selector">
+          <button data-size="small" class="size-opt-btn flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all focus:outline-none flex items-center justify-center gap-1.5">
+            Small
+          </button>
+          <button data-size="standard" class="size-opt-btn flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all focus:outline-none flex items-center justify-center gap-1.5">
+            Standard
+          </button>
+          <button data-size="medium" class="size-opt-btn flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all focus:outline-none flex items-center justify-center gap-1.5">
+            Medium
+          </button>
+          <button data-size="large" class="size-opt-btn flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all focus:outline-none flex items-center justify-center gap-1.5">
+            Large
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="border border-default rounded-xl p-6 bg-surface shadow-sm transition-colors hover:border-[#3a3a44]">
+    <div class="mb-4">
+      <h3 class="text-xl font-prose text-primary flex items-center gap-3">
+        <i data-lucide="layout-list" class="w-5 h-5 text-[var(--accent)]"></i>
+        Pagination Settings
+      </h3>
+      <p class="mt-2 text-sm text-secondary leading-relaxed">Set the exact number of turns rendered per page on the main chat panel to preserve DOM rendering performance and memory allocation.</p>
+    </div>
+    
+    <div class="space-y-2">
+      <label class="block text-xs font-bold text-secondary uppercase tracking-wider">
+        Turns Per Page Limit
+      </label>
+      <input 
+        type="number" id="disp-turns-per-page" min="5" max="1000" 
+        class="w-full px-4 py-3 bg-base border border-default rounded-lg text-primary focus:outline-none focus:border-[var(--accent)] transition-colors font-mono text-sm leading-relaxed"
+      >
+    </div>
+  </div>
+</div>

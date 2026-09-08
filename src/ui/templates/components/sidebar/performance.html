@@ -1,0 +1,33 @@
+<div class="bg-surface rounded border border-default p-3 text-xs font-mono text-secondary relative overflow-hidden">
+  <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-[var(--accent)] opacity-70"></div>
+  <div class="font-bold text-primary mb-2 text-[10px] tracking-wider uppercase ml-1">Latest Turn</div>
+  <div class="flex justify-between mb-1 ml-1">
+    <span>TTFT:</span>
+    <span class="text-[var(--accent)] font-bold">{{LATEST_TIME}}</span>
+  </div>
+  <div class="flex justify-between mb-1 ml-1">
+    <span>Input Tokens:</span>
+    <span>{{LATEST_INPUT}}</span>
+  </div>
+  <div class="flex justify-between ml-1">
+    <span>Output Tokens:</span>
+    <span class="text-primary font-bold">{{LATEST_OUTPUT}}</span>
+  </div>
+</div>
+
+<div class="bg-surface rounded border border-default p-3 text-xs font-mono text-secondary relative overflow-hidden">
+  <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-success opacity-70"></div>
+  <div class="font-bold text-primary mb-2 text-[10px] tracking-wider uppercase ml-1">Total cumulative</div>
+  <div class="flex justify-between mb-1 ml-1">
+    <span>Total TTFT:</span>
+    <span class="font-bold">{{TOTAL_TIME}}</span>
+  </div>
+  <div class="flex justify-between mb-1 ml-1">
+    <span>Input Tokens:</span>
+    <span>{{TOTAL_INPUT}}</span>
+  </div>
+  <div class="flex justify-between ml-1">
+    <span>Output Tokens:</span>
+    <span class="font-bold text-primary">{{TOTAL_OUTPUT}}</span>
+  </div>
+</div>

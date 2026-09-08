@@ -1,0 +1,16 @@
+<div class="flex justify-end w-full mb-4 group/user relative">
+  <div class="flex flex-col items-end gap-1 max-w-[80%] w-fit">
+    <span class="text-xs font-bold text-[var(--accent)]/80 mr-2 opacity-80">{{CHAR_NAME}}</span>
+    <div class="inline-block bg-[var(--accent-glow)] border border-[var(--accent-dim)] rounded-tl-[12px] rounded-tr-[12px] rounded-bl-[12px] rounded-br-[4px] px-5 py-3 font-ui text-sm text-primary shadow-sm text-left align-left prose prose-sm prose-invert [&_p:last-child]:mb-0 [&_p:first-child]:mt-0 whitespace-pre-wrap">
+      {{RENDERED_USER_INPUT}}
+    </div>
+    <div class="flex gap-4 opacity-0 group-hover/user:opacity-100 transition-opacity">
+        <button class="action-copy-user text-xs text-secondary hover:text-primary flex items-center gap-1 p-1">
+            <i data-lucide="copy" class="w-3 h-3"></i> Copy
+        </button>
+        <button class="action-branch bg-transparent text-xs text-secondary hover:text-[var(--accent)] flex items-center gap-1 p-1" data-branch-type="user">
+            <i data-lucide="git-branch" class="w-3 h-3"></i> Create Branch
+        </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<!-- Embedding Stats -->
+<div class="text-xs text-gray-400 bg-gray-800 p-2 rounded">
+  <div class="font-bold text-gray-300 mb-1">Embedding Stats</div>
+  <div>Total Embeddings: <span class="text-white">{{STATS_TOTAL}}</span></div>
+  <div>Model: <span class="text-white">{{STATS_MODEL}}</span></div>
+  <div>Last Embedded Turn: <span class="text-white">{{STATS_LAST_TURN}}</span></div>
+  
+  {{REBUILD_HTML}}
+</div>
+
+<!-- Last Query Results -->
+<div>
+  <div class="text-xs font-bold text-gray-500 uppercase mb-2">Last Query</div>
+  {{QUERY_HTML}}
+  {{RESULTS_HTML}}
+</div>

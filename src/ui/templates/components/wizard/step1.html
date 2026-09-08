@@ -1,0 +1,20 @@
+<div class="p-6 border-b border-[var(--border-default)]">
+  <h2 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dim)] mb-1 font-prose">Define Your World</h2>
+  <p class="text-[var(--text-secondary)]">These are the immutable laws of your universe. Cannot be changed later.</p>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+  <div>
+    <label class="block font-bold text-[var(--text-primary)] mb-2">World Name (Session Title)</label>
+    <input type="text" id="val-world-name" class="w-full p-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] focus:ring-2 focus:ring-[var(--border-focus)] outline-none" placeholder="e.g. Cyberpunk Neo-Tokyo">
+  </div>
+  <div class="flex flex-col flex-1">
+    <div class="flex flex-wrap justify-between items-center gap-3 mb-2">
+       <label class="font-bold text-[var(--text-primary)] mt-1">World Bible (Before)</label>
+       <button id="assist-world" class="text-sm px-3 py-1.5 bg-[var(--accent-glow)] hover:bg-[var(--accent)] text-[var(--accent)] hover:text-white rounded font-medium flex items-center gap-1 transition-colors whitespace-nowrap shrink-0"><i data-lucide="sparkles" class="w-4 h-4"></i> Help me build this</button>
+    </div>
+    <div class="relative flex-1 flex group min-h-[150px]">
+      <textarea id="val-world-before" class="w-full flex-1 p-4 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] focus:ring-2 focus:ring-[var(--border-focus)] focus:border-transparent outline-none resize-none font-mono text-sm leading-relaxed" placeholder="e.g. In the year 2142, the world is ruled by MegaCorps..."></textarea>
+      <button type="button" id="expand-world-before" class="absolute top-2 right-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1 bg-[var(--bg-hover)] rounded opacity-0 group-hover:opacity-100 transition-opacity" title="Expand"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+    </div>
+  </div>
+</div>

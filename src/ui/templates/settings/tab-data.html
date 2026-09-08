@@ -1,0 +1,47 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- Settings -->
+  <div class="border border-default rounded-xl bg-surface p-6 shadow-sm flex flex-col justify-between">
+    <div>
+      <h3 class="font-prose text-2xl text-primary mb-2 flex items-center gap-3"><i data-lucide="settings" class="w-6 h-6 text-[var(--accent)]"></i> Settings & Config</h3>
+      <p class="text-secondary text-sm mb-8 leading-relaxed">Save or load your engine configuration including API providers, keys, and model parameters.</p>
+    </div>
+    
+    <div class="space-y-6 mt-auto">
+      <div class="space-y-2">
+        <button id="btn-export-settings" class="w-full flex justify-center items-center gap-2 px-6 py-3 bg-elevated hover:bg-hover border border-default text-primary rounded-lg font-medium transition-colors">
+          <i data-lucide="download" class="w-4 h-4 text-muted"></i> Export Settings
+        </button>
+      </div>
+      
+      <div class="space-y-2 pt-2 border-t border-subtle">
+        <input type="file" id="file-import-settings" class="hidden" accept=".json">
+        <button id="btn-import-settings" class="w-full flex justify-center items-center gap-2 px-6 py-3 border border-default text-primary hover:border-[var(--accent)] hover:text-[var(--accent)] bg-base rounded-lg font-medium transition-colors">
+          <i data-lucide="upload" class="w-4 h-4"></i> Import Settings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Progress -->
+  <div class="border border-default rounded-xl bg-surface p-6 shadow-sm flex flex-col justify-between">
+    <div>
+      <h3 class="font-prose text-2xl text-primary mb-2 flex items-center gap-3"><i data-lucide="gamepad-2" class="w-6 h-6 text-[var(--accent)]"></i> Game Progress</h3>
+      <p class="text-secondary text-sm mb-8 leading-relaxed">Backup your current game state including all turns, generated memories, and milestones.</p>
+    </div>
+    
+    <div class="space-y-6 mt-auto">
+      <div class="space-y-2">
+        <button id="btn-export-game" class="w-full flex justify-center items-center gap-2 px-6 py-3 bg-elevated hover:bg-hover border border-default text-primary rounded-lg font-medium transition-colors">
+          <i data-lucide="download" class="w-4 h-4 text-muted"></i> Export Game State
+        </button>
+      </div>
+      
+      <div class="space-y-2 pt-2 border-t border-subtle">
+        <input type="file" id="file-import-game" class="hidden" accept=".json">
+        <button id="btn-import-game" class="w-full flex justify-center items-center gap-2 px-6 py-3 border border-default text-primary hover:border-[var(--accent)] hover:text-[var(--accent)] bg-base rounded-lg font-medium transition-colors">
+          <i data-lucide="upload" class="w-4 h-4"></i> Import Game State
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

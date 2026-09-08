@@ -1,0 +1,39 @@
+<div class="flex-1 flex flex-col p-6 gap-6 relative">
+  <div class="text-center space-y-2">
+    <h3 class="text-2xl font-prose font-bold text-[var(--accent)]">Build Knowledge Base</h3>
+    <p class="text-[var(--text-secondary)]">Upload lore documents, raw rules, or historical notes (TXT, MD, JSON). These files are strictly referenced by the RAG Engine when relevant and won't consume token budget on every turn.</p>
+  </div>
+
+  <div id="kb-dropzone" class="border-2 border-dashed border-[var(--border-default)] rounded-xl p-8 flex flex-col items-center justify-center text-center gap-4 hover:border-[var(--accent)] hover:bg-[var(--bg-hover)] transition-colors cursor-pointer bg-[var(--bg-elevated)] min-h-[160px]">
+    <div class="w-12 h-12 rounded-full bg-[var(--bg-surface)] flex items-center justify-center text-[var(--accent)] border border-[var(--border-default)]">
+      <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+    </div>
+    <div>
+      <p class="font-medium">Drag & Drop files here</p>
+      <p class="text-sm text-[var(--text-secondary)]">or click to browse</p>
+    </div>
+    <input type="file" id="kb-file-input" multiple accept=".txt,.md,.json" class="hidden">
+  </div>
+
+  <div id="kb-file-list" class="flex flex-col gap-2 overflow-y-auto max-h-[200px]">
+    <!-- Files will be listed here -->
+  </div>
+
+  <div class="flex justify-center mt-auto pt-4">
+    <button id="kb-process-btn" class="px-8 py-3 rounded-lg font-bold bg-[var(--accent)] text-white hover:bg-[var(--accent-dim)] shadow disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+      <i data-lucide="database" class="w-5 h-5"></i>
+      <span>Process Knowledge Base</span>
+    </button>
+  </div>
+
+  <!-- Progress Bar Overlay (Hidden initially) -->
+  <div id="kb-progress-overlay" class="absolute inset-0 bg-[var(--bg-surface)] bg-opacity-90 flex flex-col items-center justify-center z-10 hidden rounded-xl">
+     <div class="w-3/4 max-w-md bg-[var(--bg-elevated)] p-6 rounded-lg border border-[var(--border-default)] shadow-xl flex flex-col gap-4">
+        <h4 class="font-bold text-center">Processing Files...</h4>
+        <div class="w-full bg-[var(--bg-base)] h-2 rounded-full overflow-hidden">
+           <div id="kb-progress-bar" class="bg-[var(--accent)] h-full w-0 transition-all duration-300"></div>
+        </div>
+        <p id="kb-progress-text" class="text-sm text-center text-[var(--text-secondary)]">Preparing...</p>
+     </div>
+  </div>
+</div>

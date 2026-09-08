@@ -1,0 +1,8 @@
+<div class="flex items-center justify-between gap-2">
+   <input type="text" class="cf-title w-full p-2 rounded border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] outline-none text-sm font-bold" placeholder="Field Title (e.g. Secrets)" value="{{CF_TITLE}}">
+   <button type="button" class="delete-cf text-[var(--text-muted)] hover:text-[var(--error)] p-1 shrink-0" title="Delete Field"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+</div>
+<div class="relative flex flex-col">
+   <textarea class="cf-content w-full p-2 rounded border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] outline-none resize-none text-sm min-h-[60px]" placeholder="Content...">{{CF_CONTENT}}</textarea>
+   <button type="button" class="expand-cf absolute top-1 right-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1 bg-[var(--bg-hover)] rounded opacity-0 group-hover:opacity-100 transition-opacity" title="Expand"><i data-lucide="maximize-2" class="w-3 h-3"></i></button>
+</div>

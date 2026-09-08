@@ -1,0 +1,19 @@
+<div class="flex items-center gap-3">
+  <button id="btn-toggle-sidebar" class="p-2 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] rounded" aria-label="Toggle Menu"><i data-lucide="menu" class="w-5 h-5"></i></button>
+  <div class="font-bold font-ui text-[var(--text-primary)] text-lg">Turn <span id="hdr-turn-counter">{{TURN_COUNT}}</span></div>
+  <div id="memory-status-indicator" class="hidden text-xs px-2 py-1 bg-[var(--accent-glow)] text-[var(--accent)] rounded font-medium items-center gap-1 opacity-0 transition-opacity" aria-live="polite" aria-label="Processing memory...">
+      <i data-lucide="loader" class="w-3 h-3 animate-spin"></i> Processing...
+  </div>
+</div>
+<div class="flex items-center gap-2">
+  <button id="btn-toggle-minimap" class="p-2 text-[var(--accent)] hover:bg-[var(--accent-glow)] bg-transparent border border-[var(--border-default)] rounded transition-colors flex items-center gap-2 text-sm font-bold" aria-label="Toggle Minimap">
+      <i data-lucide="map" class="w-4 h-4"></i>
+      <span class="hidden md:inline">Minimap</span>
+  </button>
+  <button id="btn-toggle-right-sidebar" class="p-2 text-[var(--accent)] hover:bg-[var(--accent-glow)] bg-transparent border border-[var(--border-default)] rounded transition-colors hidden lg:flex items-center gap-2 text-sm font-bold" aria-label="Toggle Memory">
+      <i data-lucide="brain" class="w-4 h-4"></i>
+      <span class="hidden lg:inline">Memory</span>
+  </button>
+  <button id="btn-toggle-right-sidebar-mobile" class="lg:hidden p-2 text-[var(--accent)] hover:bg-[var(--bg-hover)] rounded transition-colors" aria-label="Toggle Memory"><i data-lucide="brain" class="w-5 h-5"></i></button>
+  <button id="settings-btn" class="p-2 text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] rounded transition-colors"><i data-lucide="settings" class="w-5 h-5"></i></button>
+</div>

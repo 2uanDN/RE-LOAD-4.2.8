@@ -1,0 +1,52 @@
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex justify-center items-center p-4 transition-opacity animate-fade-in" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <!-- Main modal frame -->
+  <div class="bg-elevated rounded-2xl shadow-[var(--shadow-modal)] w-full max-w-5xl h-[85vh] max-h-[85vh] flex flex-col overflow-hidden border border-subtle">
+    
+    <!-- Top Header (fixed utility bar across entire panel width) -->
+    <div class="flex items-center justify-between p-5 border-b border-subtle shrink-0 bg-elevated">
+      <div class="flex items-center gap-3">
+        <div class="p-1.5 rounded-lg bg-[var(--accent-glow)] text-[var(--accent)] border border-[var(--accent-dim)]/20 shadow-inner">
+          <i data-lucide="settings" class="w-5 h-5 animate-[spin_10s_linear_infinite]"></i>
+        </div>
+        <h2 id="modal-title" class="text-xl font-prose text-primary font-bold tracking-wide">RE:LOAD Core Configuration</h2>
+      </div>
+      <button id="settings-close-btn" aria-label="Close Settings" class="p-2 transition-all duration-150 text-secondary hover:text-primary hover:bg-hover active:scale-95 rounded-full focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Layout Body Context -->
+    <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+      
+      <!-- Side Navigation Rail on desktop / Scrollable Header on mobile -->
+      <div class="shrink-0 flex md:flex-col overflow-x-auto md:overflow-y-auto hide-scrollbar border-b md:border-b-0 md:border-r border-subtle bg-base md:bg-[#0a0a0c] w-full md:w-64 p-2 md:p-4 gap-1 md:gap-2" role="tablist" aria-label="Settings Categories">
+        <button id="tab-general" role="tab" data-tab="general" class="tab-btn flex items-center gap-3 px-4 md:px-5 py-3 md:py-3.5 text-xs md:text-sm font-semibold whitespace-nowrap transition-all duration-200 border-b-2 md:border-b-0 md:border-l-2 rounded-md md:rounded-lg md:rounded-l-none font-ui uppercase tracking-wider text-secondary border-transparent hover:text-primary hover:bg-hover/40 md:w-full md:text-left focus:outline-none">
+          <i data-lucide="sliders" class="w-4 h-4 shrink-0"></i>
+          <span>General</span>
+        </button>
+        <button id="tab-providers" role="tab" data-tab="providers" class="tab-btn flex items-center gap-3 px-4 md:px-5 py-3 md:py-3.5 text-xs md:text-sm font-semibold whitespace-nowrap transition-all duration-200 border-b-2 md:border-b-0 md:border-l-2 rounded-md md:rounded-lg md:rounded-l-none font-ui uppercase tracking-wider text-secondary border-transparent hover:text-primary hover:bg-hover/40 md:w-full md:text-left focus:outline-none">
+          <i data-lucide="key-round" class="w-4 h-4 shrink-0"></i>
+          <span>API Providers</span>
+        </button>
+        <button id="tab-prompts" role="tab" data-tab="prompts" class="tab-btn flex items-center gap-3 px-4 md:px-5 py-3 md:py-3.5 text-xs md:text-sm font-semibold whitespace-nowrap transition-all duration-200 border-b-2 md:border-b-0 md:border-l-2 rounded-md md:rounded-lg md:rounded-l-none font-ui uppercase tracking-wider text-secondary border-transparent hover:text-primary hover:bg-hover/40 md:w-full md:text-left focus:outline-none">
+          <i data-lucide="sparkles" class="w-4 h-4 shrink-0"></i>
+          <span>Prompts & Models</span>
+        </button>
+        <button id="tab-display" role="tab" data-tab="display" class="tab-btn flex items-center gap-3 px-4 md:px-5 py-3 md:py-3.5 text-xs md:text-sm font-semibold whitespace-nowrap transition-all duration-200 border-b-2 md:border-b-0 md:border-l-2 rounded-md md:rounded-lg md:rounded-l-none font-ui uppercase tracking-wider text-secondary border-transparent hover:text-primary hover:bg-hover/40 md:w-full md:text-left focus:outline-none">
+          <i data-lucide="palette" class="w-4 h-4 shrink-0"></i>
+          <span>Display</span>
+        </button>
+        <button id="tab-data" role="tab" data-tab="data" class="tab-btn flex items-center gap-3 px-4 md:px-5 py-3 md:py-3.5 text-xs md:text-sm font-semibold whitespace-nowrap transition-all duration-200 border-b-2 md:border-b-0 md:border-l-2 rounded-md md:rounded-lg md:rounded-l-none font-ui uppercase tracking-wider text-secondary border-transparent hover:text-primary hover:bg-hover/40 md:w-full md:text-left focus:outline-none">
+          <i data-lucide="database" class="w-4 h-4 shrink-0"></i>
+          <span>Data Control</span>
+        </button>
+      </div>
+
+      <!-- Tab Content Area pane, with elevated/surface contrast -->
+      <div class="flex-1 overflow-y-auto p-6 md:p-8 bg-surface md:bg-[#16161a] transition-all duration-300 animate-fade-in" id="settings-tab-content" role="tabpanel">
+        <!-- content injected here -->
+      </div>
+
+    </div>
+  </div>
+</div>

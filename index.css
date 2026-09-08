@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono&family=Inter:wght@400;500;700&family=Livvic:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Nunito:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DARK MODE (default — Dark Mode First Architecture) */
+:root {
+  /* Background tiers */
+  --bg-base:        #0d0d0f;   /* App background */
+  --bg-surface:     #16161a;   /* Card, panel surfaces */
+  --bg-elevated:    #1e1e24;   /* Modals, dropdowns */
+  --bg-hover:       #26262e;   /* Hover state */
+
+  /* Text tiers */
+  --text-primary:   #e8e6e3;   /* Main readable text */
+  --text-secondary: #9b97a0;   /* Labels, metadata */
+  --text-muted:     #5a5760;   /* Placeholders, disabled */
+
+  /* Accent — single dominant accent color */
+  --accent:         #c8a96e;   /* Warm amber — literary/narrative feel */
+  --accent-dim:     #8f7348;   /* Dimmed accent */
+  --accent-glow:    rgba(200, 169, 110, 0.15);
+
+  /* Semantic */
+  --error:          #e05a5a;
+  --warning:        #d4962a;
+  --success:        #5ab87f;
+
+  /* Borders */
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-focus:   var(--accent);
+
+  /* Shadows */
+  --shadow-card:    0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-modal:   0 16px 48px rgba(0, 0, 0, 0.7);
+
+  /* Typography */
+  --font-prose:   'Lora', 'Georgia', serif;
+  --font-ui:      'DM Sans', 'system-ui', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  --font-prose-size: 1rem;
+  --font-prose-leading: 1.75;
+
+  --text-xs:    0.75rem;   /* 12px */
+  --text-sm:    0.875rem;  /* 14px */
+  --text-base:  1rem;      /* 16px */
+  --text-lg:    1.125rem;  /* 18px */
+  --text-xl:    1.25rem;   /* 20px */
+  --text-2xl:   1.5rem;    /* 24px */
+
+  --leading-tight:  1.3;
+  --leading-prose:  1.75;   /* block 1 scene */
+  --leading-ui:     1.5;
+}
+
+/* LIGHT MODE */
+:root[data-theme="light"] {
+  --bg-base:        #f4f1ec;
+  --bg-surface:     #faf8f5;
+  --bg-elevated:    #ffffff;
+  --bg-hover:       #ede9e2;
+  --text-primary:   #1a1917;
+  --text-secondary: #6b6560;
+  --text-muted:     #a09a94;
+  --accent:         #8b6914;
+  --accent-dim:     #b08930;
+  --accent-glow:    rgba(139, 105, 20, 0.12);
+  --border-subtle:  rgba(0, 0, 0, 0.06);
+  --border-default: rgba(0, 0, 0, 0.12);
+  --shadow-card:    0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-modal:   0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  line-height: var(--leading-ui);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Drawer overlay */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms ease, visibility 250ms ease;
+}
+.drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Base utility classes mapping to custom props for easier integration if not using full arbitrary values */
+.bg-base { background-color: var(--bg-base) !important; }
+.bg-surface { background-color: var(--bg-surface) !important; }
+.bg-elevated { background-color: var(--bg-elevated) !important; }
+.bg-hover:hover { background-color: var(--bg-hover) !important; }
+
+.text-primary { color: var(--text-primary) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.accent { color: var(--accent) !important; }
+
+.border-subtle { border-color: var(--border-subtle) !important; }
+.border-default { border-color: var(--border-default) !important; }
+
+:root[data-prose-size="small"] {
+  --font-prose-size: 0.875rem;
+  --font-prose-leading: 1.6;
+}
+:root[data-prose-size="standard"] {
+  --font-prose-size: 1rem;
+  --font-prose-leading: 1.75;
+}
+:root[data-prose-size="medium"] {
+  --font-prose-size: 1.125rem;
+  --font-prose-leading: 1.8;
+}
+:root[data-prose-size="large"] {
+  --font-prose-size: 1.25rem;
+  --font-prose-leading: 1.85;
+}
+
+:root[data-font-family="system-default"] {
+  --font-prose: 'system-ui', sans-serif;
+}
+:root[data-font-family="inter"] {
+  --font-prose: 'Inter', sans-serif;
+}
+:root[data-font-family="livvic"] {
+  --font-prose: 'Livvic', sans-serif;
+}
+:root[data-font-family="lora"] {
+  --font-prose: 'Lora', 'Georgia', serif;
+}
+:root[data-font-family="merriweather"] {
+  --font-prose: 'Merriweather', 'Georgia', serif;
+}
+:root[data-font-family="noto-serif"] {
+  --font-prose: 'Noto Serif', 'Georgia', serif;
+}
+:root[data-font-family="nunito"] {
+  --font-prose: 'Nunito', sans-serif;
+}
+:root[data-font-family="open-sans"] {
+  --font-prose: 'Open Sans', sans-serif;
+}
+:root[data-font-family="roboto"] {
+  --font-prose: 'Roboto', sans-serif;
+}
+:root[data-font-family="space-grotesk"] {
+  --font-prose: 'Space Grotesk', sans-serif;
+}
+:root[data-font-family="ibm-plex-mono"] {
+  --font-prose: 'IBM Plex Mono', monospace;
+}
+
+.font-prose { font-family: var(--font-prose) !important; font-size: var(--font-prose-size) !important; line-height: var(--font-prose-leading) !important; }
+.font-prose p { margin-bottom: 1.25em; }
+.font-prose p:last-child { margin-bottom: 0; }
+.font-prose p:empty { display: none; }
+.font-ui { font-family: var(--font-ui) !important; line-height: var(--leading-ui); }
+.font-mono { font-family: var(--font-mono) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.pause-animations *, .pause-animations *::before, .pause-animations *::after {
+  animation-play-state: paused !important;
+}

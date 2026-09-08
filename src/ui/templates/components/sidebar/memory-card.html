@@ -1,0 +1,12 @@
+<div class="bg-surface border-l-4 {{BORDER_CLASS}} rounded-r shadow-[var(--shadow-card)] p-3 mb-2 text-primary font-ui text-sm transition-colors">
+  <details class="group">
+    <summary class="cursor-pointer font-bold select-none outline-none flex flex-col gap-1">
+      <div class="flex justify-between items-center">
+        <span>{{TITLE_PREFIX}} <span class="text-xs text-muted font-normal">{{RANGE}}</span></span>
+        <i data-lucide="chevron-down" class="w-3 h-3 text-secondary transition-transform group-open:rotate-180"></i>
+      </div>
+      <div class="text-xs text-secondary font-normal truncate group-open:hidden">{{PREVIEW}}</div>
+    </summary>
+    <div class="mt-3 pt-3 border-t border-default text-primary whitespace-pre-wrap font-prose text-sm leading-relaxed">{{SAFE_CONTENT}}</div>
+  </details>
+</div>

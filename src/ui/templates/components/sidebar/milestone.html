@@ -1,0 +1,8 @@
+<div class="flex gap-3 mb-3 group p-2 hover:bg-hover rounded-lg transition-colors relative">
+  <div class="flex-shrink-0 flex flex-col gap-1 items-center">
+    <span class="text-[10px] bg-elevated text-primary font-mono px-1.5 py-0.5 rounded border border-default shadow-sm">Turn {{TURN_INDEX}}</span>
+    <span class="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded {{SOURCE_BADGE_CLASS}}">{{SOURCE}}</span>
+  </div>
+  <p class="text-sm font-prose leading-relaxed text-secondary flex-1">{{CONTENT}}</p>
+  <button class="text-muted hover:text-[var(--error)] opacity-0 group-hover:opacity-100 transition-opacity milestone-delete-btn p-1 absolute top-1 right-1 bg-surface rounded-full shadow-sm" data-id="{{ID}}" aria-label="Delete milestone"><i data-lucide="x" class="w-3 h-3 pointer-events-none"></i></button>
+</div>

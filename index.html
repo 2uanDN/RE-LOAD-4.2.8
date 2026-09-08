@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RE:LOAD - Core Engine</title>
+  
+  <!-- System / Styling / Libraries via CDN = ZERO BUILD TOOL REQUIREMENT -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <script src="https://unpkg.com/dexie@4.0.8/dist/dexie.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-[var(--bg-base)] text-[var(--text-primary)] min-h-[100dvh] font-ui">
+  <div id="app" class="w-full min-h-[100dvh] text-gray-900 bg-[var(--bg-base)]">
+    <!-- Initial Splash Screen -->
+    <div id="splash-screen" class="fixed inset-0 flex flex-col items-center justify-center bg-[var(--bg-base)] z-[100] transition-opacity duration-300">
+      <div class="flex flex-col items-center text-[var(--accent)] font-prose space-y-4">
+        <div class="animate-pulse flex flex-col items-center">
+          <i data-lucide="book-open" class="w-16 h-16 mb-4"></i>
+          <h1 class="text-3xl font-bold tracking-wider uppercase text-[var(--text-primary)]">RE:LOAD</h1>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)] font-ui">
+          <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>
+          <span>Initializing world state...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    // Initialize icons globally
+    lucide.createIcons();
+  </script>
+</body>
+</html>

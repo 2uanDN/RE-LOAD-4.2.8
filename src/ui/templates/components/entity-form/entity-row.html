@@ -1,0 +1,36 @@
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-3">
+  <input type="text" class="ent-name w-full sm:flex-1 p-2 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] focus:ring-2 focus:ring-[var(--border-focus)] outline-none font-bold" placeholder="Character Name" value="{{ENT_NAME}}">
+  <div class="flex items-center w-full sm:w-auto gap-3">
+    {{FILE_UPLOAD_HTML}}
+    <button type="button" class="delete-ent text-[var(--text-muted)] hover:text-[var(--error)] transition-colors p-2 shrink-0 bg-[var(--bg-hover)] rounded-md" title="Delete Entity"><i data-lucide="trash-2" class="w-5 h-5"></i></button>
+  </div>
+</div>
+
+<input type="text" class="ent-role w-full p-2 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] focus:ring-2 outline-none text-sm" placeholder="Role / Archetype" value="{{ENT_ROLE}}">
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+  <div class="relative group flex flex-col">
+    <textarea class="ent-mindset w-full flex-1 p-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] text-sm outline-none resize-none min-h-[100px]" placeholder="Mindset / Personality">{{ENT_MINDSET}}</textarea>
+    <button type="button" class="expand-mindset absolute top-2 right-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1 bg-[var(--bg-hover)] rounded opacity-0 sm:group-hover:opacity-100 transition-opacity" title="Expand"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+  </div>
+  <div class="relative group flex flex-col">
+    <textarea class="ent-motivation w-full flex-1 p-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] text-sm outline-none resize-none min-h-[100px]" placeholder="Motivation / Goals">{{ENT_MOTIVATION}}</textarea>
+    <button type="button" class="expand-motivation absolute top-2 right-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1 bg-[var(--bg-hover)] rounded opacity-0 sm:group-hover:opacity-100 transition-opacity" title="Expand"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+  </div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+  <div class="relative group flex flex-col">
+    <textarea class="ent-appearance w-full flex-1 p-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] text-sm outline-none resize-none min-h-[100px]" placeholder="Physical Appearance">{{ENT_APPEARANCE}}</textarea>
+    <button type="button" class="expand-appearance absolute top-2 right-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1 bg-[var(--bg-hover)] rounded opacity-0 sm:group-hover:opacity-100 transition-opacity" title="Expand"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+  </div>
+  <div class="relative group flex flex-col">
+    <textarea class="ent-relationship w-full flex-1 p-3 rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-primary)] text-sm outline-none resize-none min-h-[100px]" placeholder="Relationship Dynamics (Connections, dynamics)">{{ENT_RELATIONSHIP}}</textarea>
+    <button type="button" class="expand-relationship absolute top-2 right-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] p-1 bg-[var(--bg-hover)] rounded opacity-0 sm:group-hover:opacity-100 transition-opacity" title="Expand"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+  </div>
+</div>
+
+<div class="mt-2 text-sm font-bold text-[var(--text-secondary)] uppercase">Custom Fields</div>
+<div class="cf-list flex flex-col"></div>
+<button type="button" class="add-cf-btn mt-1 text-sm flex items-center justify-center gap-1 py-2 border border-dashed border-[var(--border-default)] rounded hover:border-[var(--accent)] hover:bg-[var(--accent-glow)] text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors w-full">
+  <i data-lucide="plus" class="w-4 h-4"></i> Add
+</button>

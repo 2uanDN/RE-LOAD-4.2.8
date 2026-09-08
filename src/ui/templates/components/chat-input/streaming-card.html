@@ -1,0 +1,35 @@
+<div class="flex items-center justify-center mb-4 w-full relative">
+  <div class="absolute inset-0 flex items-center" aria-hidden="true">
+    <div class="w-full border-t border-[var(--border-default)]"></div>
+  </div>
+  <div class="relative flex justify-center">
+    <span class="bg-[var(--bg-base)] px-4 py-1 text-xs font-bold text-[var(--text-secondary)] uppercase tracking-widest rounded-full border border-[var(--border-default)] shadow-sm">
+      Turn {{DISPLAY_TURN}}
+    </span>
+  </div>
+</div>
+<div class="flex justify-end w-full mb-4">
+  <div class="flex flex-col items-end gap-1 max-w-[80%] w-fit">
+    <span class="text-xs font-bold text-[var(--accent)]/80 mr-2 opacity-80">{{CHAR_NAME}}</span>
+    <div class="inline-block bg-[var(--accent-glow)] border border-[var(--accent-dim)] rounded-tl-[12px] rounded-tr-[12px] rounded-bl-[12px] rounded-br-[4px] px-5 py-3 font-ui text-sm text-[var(--text-primary)] shadow-sm text-left align-left prose prose-sm prose-invert [&_p:last-child]:mb-0 [&_p:first-child]:mt-0 whitespace-pre-wrap">
+      {{RENDERED_USER_INPUT}}
+    </div>
+  </div>
+</div>
+<div class="flex flex-col w-full gap-4">
+  <details id="streaming-thinking-container" class="hidden group border border-[var(--border-default)] rounded bg-[var(--bg-surface)] shadow-inner overflow-hidden" open>
+    <summary class="flex items-center gap-2 px-3 py-2 text-xs font-mono text-[var(--text-secondary)] cursor-pointer hover:bg-[var(--bg-hover)] transition-colors list-none">
+      <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+      <span class="uppercase tracking-wider">Pre-Scene Undercurrent</span>
+      <i data-lucide="chevron-down" class="w-3.5 h-3.5 ml-auto transition-transform group-open:rotate-180"></i>
+    </summary>
+    <div id="streaming-thinking" class="p-3 text-xs font-mono leading-relaxed text-[var(--text-secondary)] border-t border-[var(--border-default)] bg-[var(--bg-base)] max-h-64 overflow-y-auto whitespace-pre-wrap hide-scrollbar"></div>
+  </details>
+
+  <div id="streaming-content" class="w-full bg-transparent border-l-[3px] border-[var(--accent)] pl-6 font-prose text-base text-[var(--text-primary)] mb-6 min-h-[4rem]">
+    <div class="flex items-center h-full opacity-70">
+      <span id="thinking-status" class="animate-pulse">Thinking...</span>
+      <span id="thinking-timer" class="ml-2 font-mono text-sm text-[var(--accent)]">0.0s</span>
+    </div>
+  </div>
+</div>

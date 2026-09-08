@@ -1,0 +1,54 @@
+<div id="sidebar-ui-root" class="w-full min-w-[280px] h-full bg-base text-primary overflow-y-auto border-l border-default flex flex-col hide-scrollbar shadow-[var(--shadow-modal)] relative z-20 transition-all">
+  
+  <!-- Mobile Close Button -->
+  <div class="md:hidden p-3 flex justify-end border-b border-default">
+     <button class="btn-close-mobile-sidebar p-2 text-secondary hover:text-primary hover:bg-hover rounded-md transition-colors" aria-label="Close sidebar">
+        <i data-lucide="x" class="w-5 h-5"></i>
+     </button>
+  </div>
+
+  <!-- Memory Tree Section -->
+  <div class="p-5 border-b border-default">
+    <h2 class="font-ui text-xs uppercase tracking-[0.1em] text-secondary font-bold flex items-center justify-between cursor-pointer group" id="btn-toggle-memory">
+      <span class="flex items-center gap-2">Memory Tree <span id="memory-error-indicator" class="hidden text-[var(--error)]" title="Summary Sync Failed"><i data-lucide="alert-circle" class="w-3.5 h-3.5"></i></span></span>
+      <i data-lucide="chevron-right" class="w-4 h-4 transition-transform transform rotate-90" id="icon-toggle-memory"></i>
+    </h2>
+    
+    <div id="section-memory" class="mt-4 flex flex-col gap-4">
+    </div>
+  </div>
+
+    <!-- Milestones Section -->
+  <div class="p-5 border-b border-default">
+    <h2 class="font-ui text-xs uppercase tracking-[0.1em] text-secondary font-bold flex items-center justify-between cursor-pointer group" id="btn-toggle-milestones">
+      <span>Narrative Milestones</span>
+      <i data-lucide="chevron-right" class="w-4 h-4 transition-transform transform rotate-90" id="icon-toggle-milestones"></i>
+    </h2>
+    
+    <div id="section-milestones" class="mt-4">
+      <div id="milestones-container" class="mb-4">
+      </div>
+
+      <div class="flex flex-col gap-2 border-t border-default pt-4">
+        <input type="text" id="manual-milestone-input" placeholder="Add manual milestone..." class="w-full bg-surface text-primary text-sm px-3 py-2 rounded-lg border border-default focus:outline-none focus:ring-1 focus:ring-[var(--border-focus)] transition-shadow">
+        <button id="btn-add-milestone" class="text-xs bg-[var(--accent)] hover:opacity-90 text-white font-bold py-2 px-3 rounded-lg self-end flex items-center gap-1 shadow-sm transition-opacity">
+          <i data-lucide="plus" class="w-3 h-3"></i> Pin Manually
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance & Token Section -->
+  <div class="p-5 {{DEBUG_CLASS}}">
+    <h2 class="font-ui text-xs uppercase tracking-[0.1em] text-secondary font-bold flex items-center justify-between cursor-pointer group" id="btn-toggle-performance">
+      <span>Performance & Token</span>
+      <i data-lucide="chevron-right" class="w-4 h-4 transition-transform transform rotate-90" id="icon-toggle-performance"></i>
+    </h2>
+    
+    <div id="section-performance" class="mt-4 flex flex-col gap-3">
+    </div>
+  </div>
+
+  {{RAG_DEBUG_HTML}}
+
+</div>

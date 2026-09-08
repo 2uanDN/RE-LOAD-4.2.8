@@ -1,0 +1,254 @@
+<div class="max-w-xl lg:max-w-full space-y-8">
+  <!-- Sliding Window Size -->
+  <div class="space-y-3 bg-surface border border-default p-5 rounded-xl shadow-sm">
+    <div class="flex justify-between items-center">
+      <label class="block text-xs font-bold text-secondary uppercase tracking-wider">
+        Sliding Window Size (N)
+      </label>
+      <span id="gen-sws-val" class="font-mono text-xs text-[var(--accent)] font-bold bg-[var(--accent-glow)] px-2.5 py-0.5 rounded border border-[var(--accent-dim)]">20</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs text-muted font-semibold">5</span>
+      <input 
+        type="range" id="gen-sws" min="5" max="20" step="1"
+        class="w-full h-1.5 bg-hover rounded-lg appearance-none cursor-pointer accent-[var(--accent)] transition-all"
+      >
+      <span class="text-xs text-muted font-semibold">20</span>
+    </div>
+    <p class="text-xs text-secondary mt-1 leading-relaxed">The number of recent dialogue turns loaded directly into the AI context window. Larger size retains more details but uses more tokens.</p>
+  </div>
+
+  <!-- Memory Summary Triggers -->
+  <div class="border-t border-subtle pt-8">
+    <h3 class="font-prose text-2xl text-primary mb-2">Hierarchical Memory Pipeline</h3>
+    <p class="text-xs text-secondary mb-6 leading-relaxed">Configure how the hierarchical summarization engine condenses the raw story background into persistent long-term knowledge snapshots.</p>
+
+    <!-- Visual Hierarchy Flowchart representing state -->
+    <div class="mb-8 p-6 bg-[#09090b] border border-default rounded-xl shadow-inner max-w-full">
+      <div class="text-[10px] font-bold text-[var(--accent)] uppercase tracking-widest border-b border-subtle pb-4 mb-4 flex items-center gap-2">
+         <i data-lucide="network" class="w-4 h-4"></i> Pipeline Visualization
+      </div>
+      
+      <!-- Flex container: vertical on mobile, horizontal on md+ -->
+      <div class="flex flex-col md:flex-row md:items-stretch gap-4 md:gap-2">
+        
+        <!-- Tier A1 Diagram card -->
+        <div class="flex md:flex-col items-start gap-4 md:gap-3 p-4 bg-surface rounded-xl border border-subtle flex-1 min-w-0">
+          <div class="flex-none w-8 h-8 rounded-full bg-[var(--accent-glow)] border border-[var(--accent)] flex items-center justify-center font-mono font-bold text-xs text-[var(--accent)] shadow-sm">A1</div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-[var(--text-primary)] md:mb-1">A1 Short-term Snapshots</p>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">Every <span class="text-[var(--accent)] font-semibold font-mono" id="visual-a1-turns">5</span> dialogue turns, the raw history buffer is summarized into a compact chronological snapshot.</p>
+          </div>
+        </div>
+        
+        <!-- Connector 1 -->
+        <div class="flex justify-center items-center py-1 md:py-0 md:px-2 shrink-0">
+          <!-- Mobile Connector: Down dashed line -->
+          <div class="border-l border-dashed border-[var(--accent-dim)] h-6 md:hidden"></div>
+          <!-- PC Side Arrow SVG (pointing right) -->
+          <div class="hidden md:block text-[var(--accent)]">
+            <svg class="w-6 h-6 animate-[pulse_2s_infinite]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Tier A2 Diagram card -->
+        <div class="flex md:flex-col items-start gap-4 md:gap-3 p-4 bg-surface rounded-xl border border-subtle flex-1 min-w-0">
+          <div class="flex-none w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center font-mono font-bold text-xs text-emerald-400 shadow-sm">A2</div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-[var(--text-primary)] md:mb-1">A2 Mid-term Milestones</p>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">Every <span class="text-emerald-400 font-semibold font-mono" id="visual-a2-count">5</span> A1 snapshots, they are consolidated into a high-level story arc milestone summary.</p>
+          </div>
+        </div>
+        
+        <!-- Connector 2 -->
+        <div class="flex justify-center items-center py-1 md:py-0 md:px-2 shrink-0">
+          <!-- Mobile Connector: Down dashed line -->
+          <div class="border-l border-dashed border-emerald-500/30 h-6 md:hidden"></div>
+          <!-- PC Side Arrow SVG (pointing right) -->
+          <div class="hidden md:block text-emerald-500">
+            <svg class="w-6 h-6 animate-[pulse_2s_infinite]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Tier A3 Diagram card -->
+        <div class="flex md:flex-col items-start gap-4 md:gap-3 p-4 bg-surface rounded-xl border border-subtle flex-1 min-w-0">
+          <div class="flex-none w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-mono font-bold text-xs text-amber-400 shadow-sm">A3</div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-[var(--text-primary)] md:mb-1">A3 Epilogues & Legends</p>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">Every <span class="text-amber-400 font-semibold font-mono" id="visual-a3-count">5</span> A2 milestones, they are integrated permanently into the world's ancient lore bible.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Sliders -->
+    <div class="space-y-6">
+      <!-- A1 Trigger -->
+      <div class="space-y-3 bg-surface border border-default p-5 rounded-xl shadow-sm">
+        <div class="flex justify-between items-center">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider" title="Number of turns before generating an A1 summary">
+            A1 Trigger Interval (Turns)
+          </label>
+          <span id="mem-a1-val" class="font-mono text-xs text-[var(--accent)] font-bold bg-[var(--accent-glow)] px-2.5 py-0.5 rounded border border-[var(--accent-dim)]">5</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs text-muted font-semibold">1</span>
+          <input 
+            type="range" id="mem-a1" min="1" max="20" step="1"
+            class="w-full h-1.5 bg-hover rounded-lg appearance-none cursor-pointer accent-[var(--accent)] transition-all"
+          >
+          <span class="text-xs text-muted font-semibold">20</span>
+        </div>
+        <p class="text-xs text-secondary mb-1 leading-relaxed">Triggers an automatic A1 summarization background task after N narrative dialogue turns are written.</p>
+      </div>
+
+      <!-- A2 Trigger -->
+      <div class="space-y-3 bg-surface border border-default p-5 rounded-xl shadow-sm">
+        <div class="flex justify-between items-center">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider" title="Number of A1 summaries before generating an A2 summary">
+            A2 Consolidation Limit (A1s)
+          </label>
+          <span id="mem-a2-val" class="font-mono text-xs text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">5</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs text-muted font-semibold">1</span>
+          <input 
+            type="range" id="mem-a2" min="1" max="20" step="1"
+            class="w-full h-1.5 bg-hover rounded-lg appearance-none cursor-pointer accent-emerald-500 transition-all"
+          >
+          <span class="text-xs text-muted font-semibold">20</span>
+        </div>
+        <p class="text-xs text-secondary mb-1 leading-relaxed">The consolidation threshold to group several A1 snapshots together into a larger milestone log.</p>
+      </div>
+
+      <!-- A3 Trigger -->
+      <div class="space-y-3 bg-surface border border-default p-5 rounded-xl shadow-sm">
+        <div class="flex justify-between items-center">
+          <label class="block text-xs font-bold text-secondary uppercase tracking-wider" title="Number of A2 summaries before generating an A3 summary">
+            A3 World Consolidation Limit (A2s)
+          </label>
+          <span id="mem-a3-val" class="font-mono text-xs text-amber-500 font-bold bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20">5</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs text-muted font-semibold">1</span>
+          <input 
+            type="range" id="mem-a3" min="1" max="20" step="1"
+            class="w-full h-1.5 bg-hover rounded-lg appearance-none cursor-pointer accent-amber-500 transition-all"
+          >
+          <span class="text-xs text-muted font-semibold">20</span>
+        </div>
+        <p class="text-xs text-secondary mb-1 leading-relaxed">Condenses obsolete milestone history items forever, embedding them into persistent world codex context.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Token Budgets & Context Ratios Section -->
+  <div class="border-t border-subtle pt-8 space-y-6">
+    <div class="space-y-1">
+      <h3 class="font-prose text-2xl text-primary flex items-center gap-2">
+         <i data-lucide="cpu" class="w-6 h-6 text-[var(--accent)]"></i>
+         Context Token Budgets &amp; Ratios
+      </h3>
+      <p class="text-xs text-secondary leading-relaxed">
+        Finely calibrate the allocation size of prompt context elements. High limits allow richer memory retrieval and longer conversations, but can increase processing cost.
+      </p>
+    </div>
+
+    <!-- Context Sum Validation Monitor -->
+    <div id="ratio-sum-monitor" class="p-5 bg-[#09090b] border border-default rounded-xl flex flex-col space-y-3 shadow-inner">
+      <div class="text-[10px] font-bold text-[var(--accent)] uppercase tracking-widest flex items-center gap-2">
+         <i data-lucide="activity" class="w-4 h-4"></i> Budget Allocation Health
+      </div>
+      <div class="flex justify-between items-center text-xs">
+        <span class="text-secondary font-medium">Total Load (System + User + RAG Budgets):</span>
+        <span id="ratio-sum-total" class="font-mono font-bold text-primary">160,000 / 160,000 tokens</span>
+      </div>
+      <!-- Progress Bar Container -->
+      <div class="w-full bg-base rounded-full h-2 overflow-hidden border border-subtle">
+        <div id="ratio-sum-progress" class="bg-[var(--accent)] h-full transition-all duration-300" style="width: 83.3%"></div>
+      </div>
+      <div id="ratio-sum-feedback" class="text-[11px] font-medium flex items-center gap-1.5">
+         <!-- Populated dynamically via JS -->
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <!-- Safe Input Limit (SAFE_INPUT_LIMIT) -->
+      <div class="space-y-2 bg-surface border border-default p-4 rounded-xl shadow-sm flex flex-col justify-between">
+        <div>
+          <label for="ratio-safe-limit" class="block text-xs font-bold text-secondary uppercase tracking-wider">
+            Safe Input Limit (Tokens)
+          </label>
+          <p class="text-[11px] text-muted leading-tight mt-1">The maximum global context window limit before truncation triggers.</p>
+        </div>
+        <input 
+          type="number" id="ratio-safe-limit" min="1000" max="160000" step="1000"
+          class="w-full mt-3 px-3 py-2 bg-[#09090b] border border-default rounded-lg font-mono text-sm text-[var(--accent)] focus:border-[var(--accent)] focus:ring-0 outline-none transition-all"
+        />
+      </div>
+
+      <!-- System Message Budget -->
+      <div class="space-y-2 bg-surface border border-default p-4 rounded-xl shadow-sm flex flex-col justify-between">
+        <div>
+          <label for="ratio-system-msg" class="block text-xs font-bold text-secondary uppercase tracking-wider">
+            System Message Budget
+          </label>
+          <p class="text-[11px] text-muted leading-tight mt-1">Budget reserved for World Bible prompts, guidelines, and user personas.</p>
+        </div>
+        <input 
+          type="number" id="ratio-system-msg" min="500" max="40000" step="500"
+          class="w-full mt-3 px-3 py-2 bg-[#09090b] border border-default rounded-lg font-mono text-sm text-[var(--accent)] focus:border-[var(--accent)] focus:ring-0 outline-none transition-all"
+        />
+      </div>
+
+      <!-- User Message Budget -->
+      <div class="space-y-2 bg-surface border border-default p-4 rounded-xl shadow-sm flex flex-col justify-between">
+        <div>
+          <label for="ratio-user-msg" class="block text-xs font-bold text-secondary uppercase tracking-wider">
+            User Message Budget
+          </label>
+          <p class="text-[11px] text-muted leading-tight mt-1">Budget allocated to recent sliding window lines and context memory.</p>
+        </div>
+        <input 
+          type="number" id="ratio-user-msg" min="1000" max="100000" step="1000"
+          class="w-full mt-3 px-3 py-2 bg-[#09090b] border border-default rounded-lg font-mono text-sm text-[var(--accent)] focus:border-[var(--accent)] focus:ring-0 outline-none transition-all"
+        />
+      </div>
+
+      <!-- RAG Token Budget (this.tokenBudget) -->
+      <div class="space-y-2 bg-surface border border-default p-4 rounded-xl shadow-sm flex flex-col justify-between">
+        <div>
+          <label for="ratio-rag-budget" class="block text-xs font-bold text-secondary uppercase tracking-wider">
+            RAG Memory Budget
+          </label>
+          <p class="text-[11px] text-muted leading-tight mt-1">Tokens allocated to top background memories fetched via hybrid search.</p>
+        </div>
+        <input 
+          type="number" id="ratio-rag-budget" min="100" max="10000" step="100"
+          class="w-full mt-3 px-3 py-2 bg-[#09090b] border border-default rounded-lg font-mono text-sm text-[var(--accent)] focus:border-[var(--accent)] focus:ring-0 outline-none transition-all"
+        />
+      </div>
+
+      <!-- RAG KB Token Budget -->
+      <div class="space-y-2 bg-surface border border-default p-4 rounded-xl shadow-sm flex flex-col justify-between">
+        <div>
+          <label for="ratio-rag-kb-budget" class="block text-xs font-bold text-secondary uppercase tracking-wider">
+            RAG Knowledge Base Budget
+          </label>
+          <p class="text-[11px] text-muted leading-tight mt-1">Tokens allocated to files uploaded to the Knowledge Base in Step 6.</p>
+        </div>
+        <input 
+          type="number" id="ratio-rag-kb-budget" min="0" max="10000" step="500"
+          class="w-full mt-3 px-3 py-2 bg-[#09090b] border border-default rounded-lg font-mono text-sm text-[var(--accent)] focus:border-[var(--accent)] focus:ring-0 outline-none transition-all"
+        />
+      </div>
+
+    </div>
+  </div>
+</div>
